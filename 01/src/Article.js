@@ -10,6 +10,7 @@ export default class Article extends Component{
         }
     };
 
+
     render(){
         const {article} = this.props;
         console.log(article);
