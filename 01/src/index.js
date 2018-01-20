@@ -8,8 +8,9 @@ import {articles} from './localDb';
 function Hello() {
     return (
         <div>
+            {/*{console.log('',articles)}*/}
             <ArticleList articles={articles}/>
-            {console.log('',articles)}
+
         </div>
     );
 }
@@ -21,4 +22,3 @@ ReactDOM.render(
         <Hello />
     </div>,
     document.getElementById('root'));
-// registerServiceWorker();
