@@ -2,8 +2,9 @@ import React from 'react';
 import {Component} from 'react';
 
 import CommentsList from './CommentsList'
+import toggleOpen from '../decorators/toggleOpen';
 
-export default class Article extends Component{
+class Article extends Component{
     constructor(props){
         super(props);
 
@@ -48,4 +49,6 @@ export default class Article extends Component{
         </div>)
     }
 }
+
+export default toggleOpen(Article);
 
