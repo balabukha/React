@@ -13,13 +13,13 @@ class Article extends Component{
         }
     };
     render(){
-        const {article} = this.props;
+        const {article, toggleOpen, isOpen} = this.props;
         // console.log(article);
         return (
             <div>
                 <h3>{article.title}</h3>
-                <button onClick={this.handleClick.bind(this)}>
-                    {this.state.isOpen ? 'Close' : 'Open'}
+                <button onClick={toggleOpen}>
+                    {isOpen ? 'Close' : 'Open'}
                 </button>
                 {this.getBody()}
             </div>
@@ -27,26 +27,34 @@ class Article extends Component{
 
     }
 
-    handleClick(e){
-        e.preventDefault();
-        console.log('handleClick', this);
-        this.setState({
-            isOpen: !this.state.isOpen,
-        })
-    }
+    // handleClick(e){
+    //     e.preventDefault();
+    //     console.log('handleClick', this);
+    //     this.setState({
+    //         isOpen: !this.state.isOpen,
+    //     })
+    // }
 
     getBody(){
-        const {article} = this.props;
+        const {article, toggleOpen, isOpen} = this.props;
         // let commentElements = article.comments.map((comment) => {
         //     return <li>{comment.text}</li>
         // });
 
-        console.log('getBody', this.state.isOpen);
-        if ( !this.state.isOpen ) return null;
+        // console.log('getBody', this.state.isOpen);
+        if ( !isOpen ) return null;
         return (<div>
             <section>{article.text}</section>
-            { Array.isArray(article.comments) ? <CommentsList  comments={article.comments}/> : null}
+            { Array.isArray(article.comments) ? <CommentsList ref={this.articleRef} comments={article.comments}/> : null}
         </div>)
+    }
+
+    articleRef = (ref) => {
+        this.container = ref;
+
+        console.log('ref',ref);
+        console.log('this.container',this.container);
+
     }
 }
 
