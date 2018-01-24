@@ -22,6 +22,17 @@ class Article extends Component{
         }).isRequired
     };
 
+    componentWillReceiveProps(nextProps){
+        console.log('componentWillReceiveProps', 'this.props.isOpen', this.props.isOpen, nextProps.isOpen );
+        console.log('this.props.isOpen_01',this.props.isOpen);
+
+    };
+
+    componentWillMount(){
+        console.log('this.props.isOpen_02',this.props.isOpen);
+        console.log('componentWillMount','componentWillMount');
+    };
+
     render(){
         const {article, toggleOpen, isOpen} = this.props;
         return (
@@ -35,6 +46,16 @@ class Article extends Component{
         )
 
     }
+
+    componentDidMount(){
+        console.log('this.props.isOpen_03',this.props.isOpen);
+        console.log('componentDidMount','componentDidMount');
+    };
+
+    componentDidUpdate(){
+        console.log('this.props.isOpen_04',this.props.isOpen);
+        console.log('componentDidUpdate','componentDidUpdate');
+    };
 
     // handleClick(e){
     //     e.preventDefault();
