@@ -1,5 +1,6 @@
 import React from 'react';
 import {Component} from 'react';
+import PropTypes from 'prop-types';
 
 import CommentsList from './CommentsList'
 import toggleOpen from '../decorators/toggleOpen';
@@ -8,13 +9,21 @@ class Article extends Component{
     constructor(props){
         super(props);
 
-        this.state = {
-            isOpen: false,
-        }
+        // this.state = {
+        //     isOpen: false,
+        // }
     };
+
+    static propTypes ={
+        article: PropTypes.shape({
+            id: PropTypes.string.isRequired,
+            title: PropTypes.string.isRequired,
+            text: PropTypes.string.isRequired
+        }).isRequired
+    };
+
     render(){
         const {article, toggleOpen, isOpen} = this.props;
-        // console.log(article);
         return (
             <div>
                 <h3>{article.title}</h3>
@@ -52,8 +61,8 @@ class Article extends Component{
     articleRef = (ref) => {
         this.container = ref;
 
-        console.log('ref',ref);
-        console.log('this.container',this.container);
+        // console.log('ref',ref);
+        // console.log('this.container',this.container);
 
     }
 }
