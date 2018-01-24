@@ -8,12 +8,12 @@ export default (OriginalComponent) => class WrappedComponent extends ReactCompon
     render(){
         return(
             <OriginalComponent {...this.props}
-                               isOpen = {...this.state}
+                               {...this.state}
                                toggleOpen={this.toggleOpen}
             />
             )
     }
-    toggleOpen(e){
+    toggleOpen = (e) => {
         e.preventDefault();
         this.setState({
             isOpen: !this.state.isOpen
