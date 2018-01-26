@@ -13,11 +13,11 @@ class CommentsList extends Component {
          // }
      }
 
-    static propTypes ={
+    static propTypes = {
         comments: PropTypes.arrayOf(
             PropTypes.shape({
             id: PropTypes.string.isRequired,
-            title: PropTypes.string.isRequired,
+            title: PropTypes.string,
             user: PropTypes.string.isRequired,
             text: PropTypes.string.isRequired
         }).isRequired
@@ -41,14 +41,6 @@ class CommentsList extends Component {
              </div>
          )
      }
-
-     // commentHandleOpen(e){
-     //     e.preventDefault();
-     //     this.setState({
-     //         isOpen: !this.state.isOpen
-     //     })
-     // }
-
  }
 
 export default toggleOpen(CommentsList);

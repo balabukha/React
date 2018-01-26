@@ -1,10 +1,21 @@
 import React from 'react';
-import { Componnent } from 'react';
+import { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import Article from './Article';
 
 
-export default class ArticleList extends Componnent {
+export default class ArticleList extends Component {
+
+    static propTypes = {
+    articles: PropTypes.arrayOf(
+            PropTypes.shape({
+                id: PropTypes.string.isRequired,
+                title: PropTypes.string.isRequired,
+                text: PropTypes.string.isRequired
+            }).isRequired
+        )
+    };
     constructor(props){
         super(props);
         this.state = {
@@ -14,14 +25,15 @@ export default class ArticleList extends Componnent {
 
 
 render(){
-    const articleElements = this.props.articles.map((article) => {
+    let {articles} = this.props;
+
+    const articleElements = articles.map((article) => {
         return (
             <li key={article.id}>
-                {/*{console.log('article',article)}*/}
                 <Article
                     article={article}
-                    isOpen={article.id === this.state.articleId}
-                    toggleOpen={this.toggleOpenArticle.bind(this)}
+                    isOpen={article.id === this.state.openArticleId}
+                    toggleOpen={this.toggleOpenArticle.bind(this, article.id)}
                 />
             </li>
         )
@@ -33,9 +45,16 @@ render(){
     )
 
 }
-    toggleOpenArticle(){
+    toggleOpenArticle(someId){
+        console.log(someId);
+        if(someId === this.state.openArticleId) {
+            return this.setState({
+                openArticleId: ''
+            });
+
+        }
         this.setState({
-            openArticleId : article.id
+            openArticleId: someId
         })
     }
 }
