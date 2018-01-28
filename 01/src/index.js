@@ -5,8 +5,13 @@ import Select from 'react-select';
 
 //CSS
 import 'react-select/dist/react-select.css';
+import './style.css';
+
 
 import ArticleList from './components/ArticleList';
+import DayPickerWrap from './components/DayPickerWrap';
+import Form from './components/Form';
+
 import {articles} from './localDb';
 
 
@@ -39,6 +44,8 @@ constructor(props){
                     multi
                 />
                 {/*{console.log('',articles)}*/}
+                <DayPickerWrap />;
+                <Form />
                 <ArticleList articles={articles}/>
 
             </div>
