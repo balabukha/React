@@ -12,14 +12,16 @@ export default class Form extends Component{
 
     render(){
         return(
-            <form>
+            <div>
+            <form onSubmit={this.handleSubmit}>
                 User: <input onChange={this.handleChangeInputUser}
                         value={this.state.user}
                     />
                 Text: <input onChange={this.handleChangeInputText}
                              value={this.state.text}/>
-                <button onClick={this.handleSubmit}>SEND DATA</button>
+                <input value='SEND' type="submit"/>
             </form>
+            </div>
         )
     }
 
