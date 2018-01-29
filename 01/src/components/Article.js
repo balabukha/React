@@ -43,6 +43,7 @@ class Article extends Component{
                 <button onClick={toggleOpen}>
                     {isOpen ? 'Close' : 'Open'}
                 </button>
+                <button onClick={this.handleDelete}>DELETE</button>
                 {this.getBody()}
             </div>
         )
@@ -66,6 +67,10 @@ class Article extends Component{
     //         isOpen: !this.state.isOpen,
     //     })
     // }
+    handleDelete = () => {
+        console.log('--', 'Deleting');
+
+    };
 
     getBody(){
         const {article, toggleOpen, isOpen} = this.props;
@@ -83,10 +88,8 @@ class Article extends Component{
 
     articleRef = (ref) => {
         this.container = ref;
-
         // console.log('ref',ref);
         // console.log('this.container',this.container);
-
     }
 }
 
