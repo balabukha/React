@@ -2,10 +2,13 @@ import React from 'react';
 import { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import { connect } from 'react-redux';
+
+
 import Article from './Article';
 
 
-export default class ArticleList extends Component {
+class ArticleList extends Component {
 
     static propTypes = {
     articles: PropTypes.arrayOf(
@@ -58,5 +61,19 @@ render(){
         })
     }
 }
+
+export default connect(state => ({
+    articles: state.articles
+}))(ArticleList);
+
+
+
+
+
+
+
+
+
+
 
 
