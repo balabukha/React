@@ -17,7 +17,7 @@ export default class App extends Component {
     render() {
         return (
             <div>
-                <Filtering articles={articles}/>
+                <Filtering articles={[]}/>
                 <DayPickerWrap />;
                 <Form />
                 <ArticleList/>
