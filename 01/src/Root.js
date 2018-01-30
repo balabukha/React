@@ -7,8 +7,6 @@ import store from './store/index';
 import {Provider} from 'react-redux'
 
 function Root() {
-    console.log('--', store);
-
     return (
         <Provider store = {store}>
             <App />

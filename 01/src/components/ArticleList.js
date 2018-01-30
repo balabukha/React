@@ -28,6 +28,9 @@ class ArticleList extends Component {
 
 
 render(){
+    // console.log('AL_props', props);
+    console.log('AL_this.props', this.props);
+
     let {articles} = this.props;
 
     const articleElements = articles.map((article) => {
@@ -63,7 +66,7 @@ render(){
 }
 
 export default connect(state => ({
-    articles: state.articles
+    articles: state.articlesReducer
 }))(ArticleList);
 
 
