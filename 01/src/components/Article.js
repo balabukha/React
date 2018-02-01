@@ -1,9 +1,12 @@
 import React from 'react';
 import {Component} from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 import CommentsList from './CommentsList'
 import toggleOpen from '../decorators/toggleOpen';
+
+import { deleteArticle } from '../AC/index'
 
 class Article extends Component{
     constructor(props){
@@ -68,8 +71,8 @@ class Article extends Component{
     //     })
     // }
     handleDelete = () => {
-        console.log('--', 'Deleting');
-
+        const {article, deleteArticle} = this.props;
+        deleteArticle(article.id);
     };
 
     getBody(){
@@ -94,5 +97,5 @@ class Article extends Component{
 }
 
 // export default toggleOpen(Article);
-export default Article;
+export default connect(null, { deleteArticle })(Article);
 
