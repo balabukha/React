@@ -3,6 +3,8 @@ import {Component} from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
+// import moment from 'moment';
+
 import CommentsList from './CommentsList'
 import toggleOpen from '../decorators/toggleOpen';
 
@@ -39,10 +41,18 @@ class Article extends Component{
     };
 
     render(){
+
+
         const {article, toggleOpen, isOpen} = this.props;
+
+        // let date = moment.utc(article.date);
+        // let date2 = new Date(article.date).toLocaleDateString();
+        // console.log('--', date);
+        // console.log('--', date2);
         return (
             <div>
                 <h3>{article.title}</h3>
+                <p>{new Date(article.date).toLocaleDateString()}</p>
                 <button onClick={toggleOpen}>
                     {isOpen ? 'Close' : 'Open'}
                 </button>
@@ -83,10 +93,11 @@ class Article extends Component{
 
         // console.log('getBody', this.state.isOpen);
         if ( !isOpen ) return null;
-        return (<div>
-            <section>{article.text}</section>
-            { Array.isArray(article.comments) ? <CommentsList ref={this.articleRef} comments={article.comments}/> : null}
-        </div>)
+        return (
+            <div>
+                <section>{article.text}</section>
+                { Array.isArray(article.comments) ? <CommentsList ref={this.articleRef} comments={article.comments}/> : null}
+            </div>)
     }
 
     articleRef = (ref) => {
