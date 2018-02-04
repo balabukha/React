@@ -26,6 +26,7 @@ function mapStateToProps(state) {
     return {counter: state.count}
 }
 
+
 const mapToDispatch = {
     // dispatchIncrement: increment
     increment: increment

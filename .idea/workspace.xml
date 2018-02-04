@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7563dbc8-081c-4e18-96a8-273da7fb64e4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02/src/AC/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/03_counter/src/AC/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/03_counter/src/reducers/counter.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/03_counter/src/reducers/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/01/src/components/Article.js" afterPath="$PROJECT_DIR$/01/src/components/Article.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/01/src/components/DayPickerWrap.js" afterPath="$PROJECT_DIR$/01/src/components/DayPickerWrap.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/03_counter/src/components/App.js" afterPath="$PROJECT_DIR$/03_counter/src/components/App.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -174,8 +169,8 @@
     <handled-path value="$PROJECT_DIR$/03_counter/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="430" />
-    <option name="y" value="78" />
+    <option name="x" value="-58" />
+    <option name="y" value="95" />
     <option name="width" value="1423" />
     <option name="height" value="674" />
   </component>
@@ -420,12 +415,12 @@
       <option name="presentableId" value="Default" />
       <updated>1515921565306</updated>
       <workItem from="1515921567885" duration="3909000" />
-      <workItem from="1515947541100" duration="59206000" />
+      <workItem from="1515947541100" duration="59436000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="63115000" />
+    <option name="totallyTimeSpent" value="63345000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -437,7 +432,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="430" y="78" width="1423" height="674" extended-state="0" />
+    <frame x="-58" y="95" width="1423" height="674" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19188994" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
