@@ -21,13 +21,26 @@ export default class DayPickerWrap extends React.Component {
     handleDayClick(day) {
         const range = DateUtils.addDayToRange(day, this.state);
         this.setState(range);
+        this.getDateApp(this.state.from);
+
     }
     handleResetClick() {
         this.setState(this.getInitialState());
     }
+
+    componentDidUpdate(){
+        this.getDateApp(this.state.from);
+
+    }
     render() {
         const { from, to } = this.state;
         const modifiers = { start: from, end: to };
+        console.log('dateSelection', from, to);
+
+        function getDateApp(date){
+            console.log('wowdate', from);
+        };
+
         return (
             <div className="RangeExample">
                 <p>
@@ -53,5 +66,10 @@ export default class DayPickerWrap extends React.Component {
                 />
             </div>
         );
+    }
+
+    getDateApp(date){
+        console.log('getDateApp', date);
+
     }
 };
