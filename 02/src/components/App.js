@@ -4,7 +4,9 @@ import ImportComponent from './ImportComponent';
 import TodosComponent from './TodosComponent';
 
 
-export default function App() {
+export default function App(props) {
+    console.log('propsApp', props);
+
     return (
         <div>        
             <ImportComponent />

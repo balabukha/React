@@ -1,10 +1,9 @@
 
 import { combineReducers } from 'redux';
 
-import addTodo from './addTodo';
-console.log('--', addTodo());
+import addingTodo from './addTodo';
 
 
 export default combineReducers({
-    addTodo,
+    addingTodo,
 });

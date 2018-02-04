@@ -36,7 +36,7 @@ class ImportComponent extends Component{
     keyDown = (e) => {
         if (e.keyCode === +ENTER_KEY){
             console.log('added',this.state.value);
-            addTodo(this.state.value);
+            this.props.addTodo(this.state.value);
             // store.dispatch({
             //     type:'ADD_TODO',
             // })
@@ -44,14 +44,13 @@ class ImportComponent extends Component{
     }
 };
 
-const mapDispatchToProps = dispatch =>
-    (
-        {
-            addTodo : () => {dispatch(addTodo)},
-        }
-    );
 
-export default connect(null, mapDispatchToProps )(ImportComponent)
+const mapToDispatch = {
+    // dispatchIncrement: increment
+    addTodo: addTodo
+};
+
+export default connect(state=>({todos: state.addingTodo}), mapToDispatch )(ImportComponent)
 
 
 
