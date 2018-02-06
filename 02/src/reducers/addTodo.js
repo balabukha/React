@@ -1,6 +1,6 @@
-import {ADD_TODO} from '../constants';
+import {ADD_TODO, TOGGLE_TODO} from '../constants';
 
-const initialState = [{id:1, title: 'And',completed: false},{id:2, title: 'Al',completed: false}];
+const initialState = [{id:1, title: 'And',completed: true},{id:2, title: 'Al',completed: false}];
 
 export default (state = initialState, action) => {
     const {type} = action;
@@ -13,6 +13,15 @@ export default (state = initialState, action) => {
         case ADD_TODO: return [
             {title: action.payload, completed: false, id: action.id},...state
         ];
+
+        case TOGGLE_TODO: return (
+            state.forEach((todo) => {
+                if (todo.id === action.payload) {
+                    return {completed: !completed, ...state}
+                }
+            })
+        )
+
     }
 
     return state;
