@@ -15,11 +15,11 @@ export default (state = initialState, action) => {
         ];
 
         case TOGGLE_TODO: return (
-            state.forEach((todo) => {
-                if (todo.id === action.payload) {
-                    return {completed: !completed, ...state}
-                }
-            })
+            state.map((todo) =>
+                (todo.id === action.payload) ?
+                    {...todo, completed: !todo.completed}
+                :  todo
+            )
         )
 
     }
