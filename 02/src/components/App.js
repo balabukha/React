@@ -2,6 +2,7 @@ import React from 'react';
 
 import ImportComponent from './ImportComponent';
 import TodosComponent from './TodosComponent';
+import Footer from './Footer';
 
 
 export default function App(props) {
@@ -10,7 +11,8 @@ export default function App(props) {
     return (
         <div>        
             <ImportComponent />
-             <TodosComponent />
+            <TodosComponent />
+            <Footer />
         </div>
     )
 

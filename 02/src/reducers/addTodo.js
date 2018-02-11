@@ -4,10 +4,6 @@ const initialState = [{id:1, title: 'And',completed: true},{id:2, title: 'Al',co
 
 export default (state = initialState, action) => {
     const {type} = action;
-    console.log('!!!', action);
-
-    // console.log('action', action.type);
-
 
     switch (action.type) {
         case ADD_TODO: return [

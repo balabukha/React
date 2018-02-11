@@ -10,6 +10,6 @@ export default function TodosComponent(props){
     };
 
     return(
-        <h5 style = {props.completed ? Completed : noCompleted}>{props.todo.title}</h5>
+        <p style = {props.completed ? Completed : noCompleted}>{props.todo.title}</p>
     )
 }

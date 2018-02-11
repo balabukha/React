@@ -1,11 +1,20 @@
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 
 import reducer from '../reducers';
 
+import {createLogger} from 'redux-logger';
 
-const store = createStore(reducer);
-console.log('store',store );
+const logger = createLogger({
+    // ...options
+});
 
-window.store = store;
+// const store = createStore(reducer, applyMiddleware(createLoger));
 
-export default store;
+// console.log('store',store );
+//
+// window.store = store;
+
+// export default createStore(reducer, applyMiddleware(logger));
+
+export default createStore(reducer,
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());

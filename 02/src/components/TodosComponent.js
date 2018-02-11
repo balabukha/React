@@ -13,8 +13,6 @@ function TodosComponent(props){
 
     return(
         <ul>
-            {console.log('props.todos', props.todos)}
-
             {props.todos.map(todo => {
             return <li 
                 key={todo.id}
@@ -32,7 +30,6 @@ function TodosComponent(props){
 }
 
 const mapToDispatch = {
-    // dispatchIncrement: increment
     toggleTodo: toggleTodo
 };
 
