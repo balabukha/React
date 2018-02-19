@@ -10,7 +10,7 @@ const store = createStore(reducer, composeWithDevTools(
     applyMiddleware(thunk),
   ));
   
-console.log('store',store.getState() );
+// console.log('store',store.getState() );
 
 // DEV only
 window.store = store;

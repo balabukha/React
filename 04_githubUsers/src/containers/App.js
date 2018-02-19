@@ -9,7 +9,7 @@ import { fetchUsers } from '../AC/index';
 class App extends Component {
 
     componentDidMount(){
-        fetchUsers('javascript')
+        this.props.fetchUsers('javascript')
     }
     render(){
         return (
