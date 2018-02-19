@@ -2,27 +2,31 @@ import React from 'react';
 import {Component} from 'react';
 import {connect} from 'react-redux';
 
-// import { } from '../AC/index';
+import { fetchUsers } from '../AC/index';
 
 
 
 class App extends Component {
+
+    componentDidMount(){
+        fetchUsers('javascript')
+    }
     render(){
         return (
-
+            <h1>HEY!</h1>
         )
     }
 
 }
 
-function mapStateToProps(state) {
-    // return {counter: state.count}
-}
+// function mapStateToProps(state) {
+//     // return {counter: state.count}
+// }
 
 
-const mapToDispatch = {
-    // dispatchIncrement: increment
-    // increment: increment
-};
+// const mapToDispatch = {
+//     // dispatchIncrement: increment
+//     // increment: increment
+// };
 
-export default connect(mapStateToProps, mapToDispatch )(App)
+export default connect(null, {fetchUsers} )(App)
