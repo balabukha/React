@@ -3,9 +3,9 @@ import axios from 'axios';
 const NUMBER_OF_ITEMS = 10
 const NUMBER_OF_PAGES = 1;
 
-const API = 'https://api.github.com/';
+const API = 'https://api.github.com/search/repositories';
 
-export default function getAPI(language){
+function getAPI(language){
     const params = {
         q: `language:${language}`,
         per_page: NUMBER_OF_ITEMS,
@@ -21,3 +21,7 @@ export default function getAPI(language){
       console.log(error);
     });
 };
+
+export default {
+    getAPI,
+}
