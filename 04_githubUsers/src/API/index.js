@@ -13,13 +13,9 @@ function getAPI(language){
         page:NUMBER_OF_PAGES,
     }
 
-    return axios.get(API, params)
-    .then(function (response) {
-      console.log(response);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+    return axios.get(API, {params})
+    .then(res => res.data)
+
 };
 
 export default {

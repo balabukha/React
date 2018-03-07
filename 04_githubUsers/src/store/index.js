@@ -5,17 +5,18 @@ import thunk from 'redux-thunk';
 
 import reducer from '../reducers/index';
 
+const compose = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
 
-const store = createStore(reducer, composeWithDevTools(
+export default createStore(
+  reducer, 
+  compose(
     applyMiddleware(thunk),
   ));
   
-console.log('store',store.getState() );
+// console.log('store',store.getState() );
 
 // DEV only
-window.store = store;
-
-export default store;
+// window.store = store;
 
 
 
