@@ -12,6 +12,7 @@ class App extends Component {
         this.props.fetchUsers('javascript')
     }
     render(){
+        // console.log(users);
         return (
             <h1>HEY!</h1>
         )
@@ -19,9 +20,9 @@ class App extends Component {
 
 }
 
-// function mapStateToProps(state) {
-//     // return {counter: state.count}
-// }
+function mapStateToProps(state) {
+    return {users: state.items}
+}
 
 
 // const mapToDispatch = {
@@ -29,4 +30,4 @@ class App extends Component {
 //     // increment: increment
 // };
 
-export default connect(null, {fetchUsers} )(App)
+export default connect(mapStateToProps, {fetchUsers} )(App)
