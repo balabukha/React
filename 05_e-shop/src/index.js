@@ -12,8 +12,8 @@ import Layout from 'Layout';
 import Phones from 'Phones';
 
 // == CSS == //
-import './main.css'
 
+import './main.css'
 
 const store = createStore(reducers, composeWithDevTools(
     applyMiddleware(thunk),
