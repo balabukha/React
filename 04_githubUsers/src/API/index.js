@@ -14,7 +14,7 @@ function getAPI(language){
     }
 
     return axios.get(API, {params})
-    // .then(res => res.data)
+    .then(res => res.data)
 
 };
 
