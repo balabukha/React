@@ -5,8 +5,9 @@
 
 // })
 
-import {RECEIVE_USERS, REQUEST_USERS} from '../constants.js'
-
+// import {RECEIVE_USERS, REQUEST_USERS} from '../constants.js'
+const RECEIVE_USERS = 'RECEIVE_USERS';
+const REQUEST_USERS = 'REQUEST_USERS';
 
 const users = (state = { isFetching: false, items: []}, action) => {
     switch (action.type) {
