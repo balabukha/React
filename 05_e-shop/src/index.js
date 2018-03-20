@@ -8,8 +8,9 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 
 import reducers from 'reducers';
-import Layout from 'Layout';
-import Phones from 'Phones';
+import Layout from 'containers/Layout';
+import Phones from 'containers/Phones';
+import Phone from 'containers/Phone';
 
 // == CSS == //
 
@@ -27,6 +28,7 @@ ReactDOM.render(
             <Route component={Layout}>
                 <Route path="/" component={Phones}/>
             </Route>
+            <Route path="/phones/:id" component={Phone}/>
         </Router>
     </Provider>,
     document.getElementById('root')
