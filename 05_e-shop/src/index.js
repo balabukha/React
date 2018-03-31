@@ -11,6 +11,7 @@ import reducers from 'reducers';
 import Layout from 'containers/Layout';
 import Phones from 'containers/Phones';
 import Phone from 'containers/Phone';
+import Basket from 'containers/Basket';
 
 // == CSS == //
 
@@ -30,6 +31,7 @@ ReactDOM.render(
                 <Route path="/categories/:id" component={Phones}/>
             </Route>
             <Route path="/phones/:id" component={Phone}/>
+            <Route path="/basket" component={Basket}/>
         </Router>
     </Provider>,
     document.getElementById('root')
