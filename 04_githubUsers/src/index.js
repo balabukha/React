@@ -7,6 +7,8 @@ import App from './containers/App';
 import store from './store/index';
 import {Provider} from 'react-redux'
 
+import './main.css';
+
 function Index() {
 
     // return (

@@ -1,26 +1,29 @@
 import React from 'react';
 import {Component} from 'react';
 
-import User from './User';
+import User from './User.jsx';
 
 
-export default class UserList extends Component {
+class UserList extends Component {
     render(){
-        const {users} = this.props
+        const {users} = this.props;
+        console.log('users_UserList', users);
 
         return(
-            <div>
+            <div className="wrapper-user">
                 {
-                    users.map(user => 
+                    users.map((user) =>
                     <User 
-                        key = {user.login}
-                        name = {user.login}
-                        avatar = {user.avatar_url}
-                        link = {user.url}
+                        key = {user.owner.login}
+                        name = {user.owner.login}
+                        avatar = {user.owner.avatar_url}
+                        link = {user.owner.url}
                     />
                     )
                 }
             </div>
         )
     }
-}
+};
+
+export default UserList;
