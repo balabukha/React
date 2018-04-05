@@ -1,17 +1,23 @@
-// import {combineReducers} from 'redux';
+import {combineReducers} from 'redux';
 
+import {RECEIVE_USERS, REQUEST_USERS, LANGUAGE_SELECT} from '../constants.js'
 
-// export default combineReducers({
+let initialState = {
+    isFetching: false,
+    items: []
+};
 
-// })
-
-// import {RECEIVE_USERS, REQUEST_USERS} from '../constants.js'
-const RECEIVE_USERS = 'RECEIVE_USERS';
-const REQUEST_USERS = 'REQUEST_USERS';
-
-const users = (state = { isFetching: false, items: []}, action) => {
+const users = (state = initialState, action) => {
     switch (action.type) {
+        case REQUEST_USERS: {
+
+            return {
+                ...state,
+                isFetching: true,
+            }
+        }
         case RECEIVE_USERS: {
+
             return {
                 ...state,
                 isFetching: false,
@@ -23,6 +29,20 @@ const users = (state = { isFetching: false, items: []}, action) => {
             return state;
         }
     }
-}
+};
 
-export default users
+const languageSelect = (state = 'javascript', action) => {
+    switch (action.type) {
+        case LANGUAGE_SELECT: {
+            return action.language
+        }
+
+        default: {
+            return state;
+        }
+    }
+};
+export default combineReducers({
+    users,
+    languageSelect
+})

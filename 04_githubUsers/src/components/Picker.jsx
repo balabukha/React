@@ -1,10 +1,10 @@
 import React from 'react';
 import {Component} from 'react';
 
-import Select from 'react-select';
-import 'react-select/dist/react-select.css';
+// import Select from 'react-select';
+// import 'react-select/dist/react-select.css';
 
-import {DropdownButton, MenuItem} from 'react-bootstrap'
+// import {DropdownButton, MenuItem} from 'react-bootstrap'
 
 export default class Picker extends Component{
 
@@ -12,15 +12,18 @@ export default class Picker extends Component{
         const { options, value, onChange } = this.props;
     
         return (
-          <Select
-            name="form-field-name"
-            value={value}
-            onChange={e => onChange(e.target.value)}
-          >
-          {
-              options.map((item, i) =>(<option value = {item} key = {item}>{item}</option> ))
-          }
-          </Select>
+            <div className="wrapper-select">
+                <select
+                    className="select-form"
+                    value={value}
+                    onChange={e => onChange(e.target.value)}
+                >
+                    {
+                        options.map((item) =>(<option value = {item} key = {item}>{item}</option> ))
+                    }
+                </select>
+            </div>
+
         );
       }
     }
