@@ -1,7 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import 'semantic-ui-css/semantic.min.css';
+import {BrowserRouter} from 'react-router-dom';
+
 import App from './App';
 
+
 /* eslint-disable */
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+ReactDOM.render(
+    <BrowserRouter >
+        <App />
+    </BrowserRouter>
+, document.getElementById('root'));
