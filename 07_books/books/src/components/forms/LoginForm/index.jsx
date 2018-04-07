@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types'
 import { Form, Button } from 'semantic-ui-react';
 import validator from 'validator';
-
+import * as R from 'ramda'; 
 
 import InlineError from '../InlineError'
 
@@ -12,10 +13,7 @@ class LoginForm extends Component{
             password: ''
         },
         loading: false,
-        errors: {
-            email:'',
-            password: ''
-        }
+        errors: {}
     };
 
     handleChange = e => (
@@ -23,34 +21,29 @@ class LoginForm extends Component{
             data: {...this.state.data, [e.target.name]: e.target.value}
         })
     )
-    submit = () => {
-        if (!validator.isEmail(this.state.data.email)) {
-            this.setState({
-                errors: {...this.state.errors, email: 'the email is incorrect'}
-            })
-        } else {
-            this.setState({
-                errors: {...this.state.errors, email: ''}
-            })   
-        };
 
-        if (R.length(this.state.errors.password) === 0){
+    validation = (data) => {
+        const error = {};
+        if (!validator.isEmail(data.email)) error.email = 'wrong email';
+        if (R.length(this.state.data.password) === 0) error.password = 'the password cant be blank';
+        return error;
+    }
+
+    submit = () => {
+        const error = this.validation(this.state.data);
             this.setState({
-                errors: {...this.state.errors, password: 'the password cant be blank'}
-            })
-        } else {
-            this.setState({
-                errors: {...this.state.errors, password: ''}
-            })   
-        };
+                errors: error
+            });
+            if(R.length(R.values(error)) === 0) {
+                this.props.submit(this.state.data)
+            }
     }
 
     render(){
-        const { data } = this.state;
-
+        const { data, errors } = this.state;
         return(
             <Form onSubmit={this.submit}>
-                <Form.Field>
+                <Form.Field error={!!errors.email}>
                     <label htmlFor="email">Email</label>
                     <input 
                         type="email"
@@ -60,9 +53,9 @@ class LoginForm extends Component{
                         value={data.email}
                         onChange={this.handleChange}
                     />
-                    <InlineError text='ee'/>
+                    {  errors.email && <InlineError text={errors.email}/> }
                 </Form.Field>
-                <Form.Field>
+                <Form.Field error={!!errors.password}>
                     <label htmlFor="password">Password</label>
                     <input 
                         type="password"
@@ -72,11 +65,16 @@ class LoginForm extends Component{
                         value={data.password}
                         onChange={this.handleChange}
                     />
+                    {  errors.password && <InlineError text={errors.password}/> }
                 </Form.Field>
                 <Button primary>Login</Button>
             </Form>
         )
     }   
 };
+
+LoginForm.propTypes = {
+    submit: PropTypes.func.isRequired
+  };
 
 export default LoginForm;
