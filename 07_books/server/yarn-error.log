@@ -1,0 +1,36 @@
+Arguments: 
+  /Users/balabukha/.nvm/versions/node/v7.9.0/bin/node /usr/local/Cellar/yarn/1.5.1_1/libexec/bin/yarn.js add --dev babel-cli babel-preset-env
+
+PATH: 
+  /Users/balabukha/.nvm/versions/node/v7.9.0/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+
+Yarn version: 
+  1.5.1
+
+Node version: 
+  7.9.0
+
+Platform: 
+  darwin x64
+
+npm manifest: 
+  {
+    "name": "server",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  SyntaxError: /Users/balabukha/Documents/03_React_learn.js.ru/07_books/server/package.json: Unexpected token } in JSON at position 86
+      at JSON.parse (<anonymous>)
+      at /usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:1036:59
+      at Generator.next (<anonymous>)
+      at step (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:98:30)
+      at /usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:109:13
