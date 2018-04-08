@@ -6,3 +6,7 @@ React-router 4.2
 
 CSS:
     yarn add semantic-ui-react semantic-ui-css
+
+server:
+    yarn add --dev babel-cli babel-preset-env
+

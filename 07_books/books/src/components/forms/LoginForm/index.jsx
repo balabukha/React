@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types'
-import { Form, Button } from 'semantic-ui-react';
+import { Form, Button, Message } from 'semantic-ui-react';
 import validator from 'validator';
 import * as R from 'ramda'; 
 
@@ -20,29 +20,40 @@ class LoginForm extends Component{
         this.setState({
             data: {...this.state.data, [e.target.name]: e.target.value}
         })
-    )
+    );
 
     validation = (data) => {
         const error = {};
         if (!validator.isEmail(data.email)) error.email = 'wrong email';
         if (R.length(this.state.data.password) === 0) error.password = 'the password cant be blank';
         return error;
-    }
+    };
 
     submit = () => {
+        console.log(this.props.submit);
         const error = this.validation(this.state.data);
             this.setState({
                 errors: error
             });
             if(R.length(R.values(error)) === 0) {
+                this.setState({ loading: true });
                 this.props.submit(this.state.data)
+                    .catch(err => this.setState({errors: err.response.data.errors, loading: false}, console.log('--', this.state)))
             }
-    }
+
+    };
 
     render(){
-        const { data, errors } = this.state;
+        const { data, errors, loading } = this.state;
         return(
-            <Form onSubmit={this.submit}>
+            <Form onSubmit={this.submit} loading={loading}>
+                {
+                    errors.global &&
+                    <Message negative>
+                        <Message.Header>Something goes wrong</Message.Header>
+                        <p>{errors.global}</p>
+                    </Message>
+                }
                 <Form.Field error={!!errors.email}>
                     <label htmlFor="email">Email</label>
                     <input 
@@ -71,7 +82,7 @@ class LoginForm extends Component{
             </Form>
         )
     }   
-};
+}
 
 LoginForm.propTypes = {
     submit: PropTypes.func.isRequired

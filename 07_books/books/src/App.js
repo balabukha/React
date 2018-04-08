@@ -5,10 +5,11 @@ import HomePage from './components/pages/HomePage'
 import LoginPage from './components/pages/LoginPage'
 
 /* eslint-disable */
-const App = () => <div>
-    <Route path='/' exact component={HomePage}/>
-    <Route path='/login' exact component={LoginPage}/>
-    </div>
+const App = () => (
+    <div>
+        <Route path='/' exact component={HomePage}/>
+        <Route path='/login' exact component={LoginPage}/>
+    </div>)
 /* eslint-enable */
 
 export default App;
