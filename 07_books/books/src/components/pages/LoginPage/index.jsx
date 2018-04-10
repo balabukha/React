@@ -2,15 +2,15 @@ import React, {Component} from "react";
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import LoginForm from '../../forms/LoginForm';
-import { login } from '../../../Actions';
+import { login } from '../../../actions';
 
 
 class LoginPage extends Component {
 
     // submit = (data) => this.props.login(data).then(() => this.props.history.push('/'));
-    submit = data => this.props.login(data).then(() => this.props.history.push("/"))
+    submit = data => this.props.login(data).then(() => this.props.history.push("/"));
     // submit = data => { return this.props.login(data).then(() => this.props.history.push("/")); }
-    // submit = data => console.log('this props', this.props);
+    // submit = data => console.log('this.props.login(data)', this.props.login);
 
     render(){
         return (
