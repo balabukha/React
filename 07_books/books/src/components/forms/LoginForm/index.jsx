@@ -30,20 +30,28 @@ class LoginForm extends Component{
     };
 
     submit = () => {
-        console.log(this.props.submit);
+        // console.log(this.props.submit);
         const error = this.validation(this.state.data);
             this.setState({
                 errors: error
             });
             if(R.length(R.values(error)) === 0) {
                 this.setState({ loading: true });
-                this.props.submit(this.state.data)
-                    .catch(err => this.setState({errors: err.response.data.errors, loading: false}, console.log('--', this.state)))
+                this.props
+                    .submit(this.state.data)
+                    .catch((err) => this.setState({errors: err.response.statusText, loading: false}))
+
+                // .catch(err => console.log('--', err.response.statusText))
+
+
             }
 
     };
 
+
     render(){
+        console.log('this.state', this.state);
+
         const { data, errors, loading } = this.state;
         return(
             <Form onSubmit={this.submit} loading={loading}>
