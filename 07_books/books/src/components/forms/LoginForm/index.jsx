@@ -39,9 +39,8 @@ class LoginForm extends Component{
                 this.setState({ loading: true });
                 this.props
                     .submit(this.state.data)
-                    .catch((err) => this.setState({errors: err.response.statusText, loading: false}))
-
-                // .catch(err => console.log('--', err.response.statusText))
+                    .catch((err) => this.setState({errors: err.response.data.errors, loading: false}))
+                    // .catch(err => console.log('err in login Form', err.response.data.errors))
 
 
             }
