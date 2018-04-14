@@ -1,11 +1,27 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
+import { logOut } from '../../../actions'
 
-const HomePage = () => (
+const HomePage = ({isAuth, logOut}) => (
         <div>
             <h1>Home Page</h1>
-            <Link to='./login'>Login</Link>
+
+            {isAuth ? <button onClick={()=>logOut()}>Logout</button> : <Link to='./login'>Login</Link>}
+
         </div>
 );
 
-export default HomePage;
+function mapStateToProps(state) {
+    return {
+        isAuth: !!state.user.token
+    }
+}
+
+HomePage.propTypes = {
+    isAuth: PropTypes.bool.isRequired,
+    logOut: PropTypes.func.isRequired
+};
+
+export default connect(mapStateToProps, {logOut})(HomePage);
