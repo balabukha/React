@@ -7,10 +7,7 @@ import { login } from '../../../actions';
 
 class LoginPage extends Component {
 
-    // submit = (data) => this.props.login(data).then(() => this.props.history.push('/'));
     submit = data => this.props.login(data).then(() => this.props.history.push("/"));
-    // submit = data => { return this.props.login(data).then(() => this.props.history.push("/")); }
-    // submit = data => console.log('this.props.login(data)', this.props.login);
 
     render(){
         return (
@@ -21,7 +18,7 @@ class LoginPage extends Component {
         )
     }
 
-};
+}
 
 LoginPage.propTypes = {
     history:PropTypes.shape({

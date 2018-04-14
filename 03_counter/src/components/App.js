@@ -20,7 +20,7 @@ class App extends Component {
         // this.props.dispatchIncrement()
         this.props.increment()
     };
-};
+}
 
 function mapStateToProps(state) {
     return {counter: state.count}

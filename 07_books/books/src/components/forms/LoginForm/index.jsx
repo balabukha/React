@@ -41,16 +41,11 @@ class LoginForm extends Component{
                     .submit(this.state.data)
                     .catch((err) => this.setState({errors: err.response.data.errors, loading: false}))
                     // .catch(err => console.log('err in login Form', err.response.data.errors))
-
-
             }
-
     };
 
 
     render(){
-        console.log('this.state', this.state);
-
         const { data, errors, loading } = this.state;
         return(
             <Form onSubmit={this.submit} loading={loading}>
