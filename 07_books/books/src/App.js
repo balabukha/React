@@ -1,15 +1,29 @@
 import React from 'react';
-import { Route } from 'react-router';
+import { Route } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import HomePage from './components/pages/HomePage'
 import LoginPage from './components/pages/LoginPage'
+import Dashboard from './components/pages/DashboardPage'
+import GuestRoute from './components/pages/GuestRoute'
+import UserRoute from './components/pages/UserRoute'
+import SignUpPage from './components/pages/SignUpPage'
 
 /* eslint-disable */
-const App = () => (
+const App = ({location}) => (
     <div>
-        <Route path='/' exact component={HomePage}/>
-        <Route path='/login' exact component={LoginPage}/>
-    </div>)
+        <Route location={location} path='/' exact component={HomePage}/>
+        <GuestRoute location={location} path='/login' exact component={LoginPage}/>
+        <UserRoute location={location} path='/dashboard' exact component={Dashboard}/>
+        <UserRoute location={location} path='/signUp' exact component={SignUpPage}/>
+    </div>
+);
 /* eslint-enable */
+
+App.propTypes = {
+    location: PropTypes.shape({
+        pathname: PropTypes.string.isRequired
+    }).isRequired
+};
 
 export default App;
