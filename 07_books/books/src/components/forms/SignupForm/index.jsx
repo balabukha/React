@@ -29,8 +29,8 @@ class SignupForm extends Component{
         return error;
     };
 
-    submit = () => {
-        // console.log(this.props.submit);
+    submit = (e) => {
+        e.preventDefault();
         const error = this.validation(this.state.data);
             this.setState({
                 errors: error
@@ -40,7 +40,6 @@ class SignupForm extends Component{
                 this.props
                     .submit(this.state.data)
                     .catch((err) => this.setState({errors: err.response.data.errors, loading: false}))
-                    // .catch(err => console.log('err in login Form', err.response.data.errors))
             }
     };
 

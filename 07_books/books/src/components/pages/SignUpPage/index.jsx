@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import SignupForm from '../../forms/SignupForm'
+import { signup } from '../../../actions'
 
 class SignUpPage extends Component {
 
@@ -12,6 +13,7 @@ class SignUpPage extends Component {
     render(){
         return(
             <div>
+                <h3>Please register</h3>
                 <SignupForm submit={this.submit} />
             </div>
         )
