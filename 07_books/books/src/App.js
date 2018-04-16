@@ -15,7 +15,7 @@ const App = ({location}) => (
         <Route location={location} path='/' exact component={HomePage}/>
         <GuestRoute location={location} path='/login' exact component={LoginPage}/>
         <UserRoute location={location} path='/dashboard' exact component={Dashboard}/>
-        <UserRoute location={location} path='/signUp' exact component={SignUpPage}/>
+        <GuestRoute location={location} path='/signup' exact component={SignUpPage}/>
     </div>
 );
 /* eslint-enable */

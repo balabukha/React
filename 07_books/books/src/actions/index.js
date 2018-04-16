@@ -25,6 +25,15 @@ export const login = (credentials) => async dispatch => {
     })
 };
 
+export const signup = (credentials) => async dispatch => {
+    const dataUser = await api.user.signup(credentials);
+    localStorage.booksJWT = dataUser.token;
+    dispatch({
+        type: USER_LOGGED_IN,
+        user: dataUser
+    })
+};
+
 export const logOut = () => dispatch => {
     localStorage.removeItem('booksJWT');
     dispatch({
