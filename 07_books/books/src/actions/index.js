@@ -42,6 +42,9 @@ export const logOut = () => dispatch => {
     })
 };
 
+export const resetPasswordRequest = ({email}) => () => 
+    api.user.resetPasswordRequest(email);
+
 // enother example:
 // export const fetchUsers = language => dispatch => {
 //     dispatch({
