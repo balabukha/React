@@ -7,8 +7,9 @@ export default {
                 .then(res => res.data.user),
         signup: credentials =>
             axios.post("/api/users", { credentials })
-                .then(res => res.data.user)
-                // .then(res => console.log('res in API', res))
-                // .catch(err => console.log('error in API', err))
+                .then(res => res.data.user),
+        resetPasswordRequest: email => 
+            axios.post("/api/auth/reset_password_request", {email})
+                
     }
 };

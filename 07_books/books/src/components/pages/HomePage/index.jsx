@@ -11,7 +11,7 @@ const HomePage = ({isAuth, logOut}) => (
             {
                 isAuth ? 
                 ( <button onClick={()=>logOut()}>Logout</button> ) :
-                ( <div><Link to='./login'>Login</Link> or <Link to='./sugnup'>Signup</Link></div>  )
+                ( <div><Link to='./login'>Login</Link> or <Link to='./signup'>Signup</Link></div>  )
             }
 
         </div>

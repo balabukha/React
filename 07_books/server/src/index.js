@@ -22,7 +22,7 @@ mongoose.connect(process.env.MONGODB_URL, {useMongoClient: true});
 // })
 
 app.use("/api/auth", auth);
-app.use("/api/users", users);
+app.use("/api/users", users); // передаем JWT на клиент
 
 
 app.get('/*', (req, res) => {
