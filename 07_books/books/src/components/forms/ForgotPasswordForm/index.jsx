@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types'
-import { Form, Button } from 'semantic-ui-react';
+import { Form, Button, Message } from 'semantic-ui-react';
 import validator from 'validator';
 import * as R from 'ramda'; 
 
@@ -46,6 +46,7 @@ class ForgotPasswordForm extends Component{
         const { data, errors, loading } = this.state;
         return(
             <Form onSubmit={this.submit} loading={loading}>
+                { !!errors.global && <Message negative>{errors.global}</Message>}
                 <Form.Field error={!!errors.email}>
                     <label htmlFor="email">Email</label>
                     <input 
@@ -58,7 +59,7 @@ class ForgotPasswordForm extends Component{
                     />
                     {  errors.email && <InlineError text={errors.email}/> }
                 </Form.Field>
-                <Button primary>Login</Button>
+                <Button primary>SEND</Button>
             </Form>
         )
     }   

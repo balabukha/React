@@ -31,7 +31,7 @@ export const signup = (credentials) => async dispatch => {
     dispatch({
         type: USER_LOGGED_IN,
         user: dataUser
-    })
+    }) 
 };
 
 export const logOut = () => dispatch => {
