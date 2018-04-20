@@ -1,5 +1,8 @@
 import express from 'express';
+import jwt from 'jsonwebtoken';
+
 import User from '../models/User';
+import sendResetPasswordEmail from '../mailer';
 
 const router = express.Router();
 
@@ -25,17 +28,16 @@ router.post("/reset_password_request", (req, res) => {
     });
 });
 
+router.post("/validate_token", (req, res) => {
+    jwt.verify(req.body.token, process.env.JWT_SECRET, err => {
+        if (err) {
+            res.status(401).fson({})
+        } else {
+            res.json({})
+        }
+    })
+});
 
-// router.post("/", async (req, res) => {
-//     const { credentials } = req.body;
-//     const user = await User.find();
-//         console.log('!!', user);
-//         if (user) {
-//             console.log('--', user);
-//             res.json({user: { email: user.email }})
-//         } else {
-//             res.status(400).json({ errors: { global: "Invalid credentials!!" } });
-//         }
-// });
+
 
 export default router;
