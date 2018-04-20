@@ -31,7 +31,7 @@ export const signup = (credentials) => async dispatch => {
     dispatch({
         type: USER_LOGGED_IN,
         user: dataUser
-    })
+    }) 
 };
 
 export const logOut = () => dispatch => {
@@ -45,14 +45,7 @@ export const logOut = () => dispatch => {
 export const resetPasswordRequest = ({email}) => () => 
     api.user.resetPasswordRequest(email);
 
-// enother example:
-// export const fetchUsers = language => dispatch => {
-//     dispatch({
-//         type: REQUEST_USERS,
-//     })
-//     return api.getAPI(language)
-//         .then(data => dispatch({
-//             type: RECEIVE_USERS,
-//             users: data.items
-//         }));
-// };
+
+export const validateToken = (token) => () => api.user.validateToken(token);
+
+

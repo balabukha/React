@@ -9,6 +9,7 @@ import GuestRoute from './components/pages/GuestRoute'
 import UserRoute from './components/pages/UserRoute'
 import SignUpPage from './components/pages/SignUpPage'
 import ForgotPasswordPage from './components/pages/ForgotPasswordPage'
+import ResetPasswordPage from './components/pages/ResetPasswordPage'
 
 /* eslint-disable */
 const App = ({location}) => (
@@ -18,6 +19,7 @@ const App = ({location}) => (
         <GuestRoute location={location} path='/forgot_password' exact component={ForgotPasswordPage}/>
         <UserRoute location={location} path='/dashboard' exact component={Dashboard}/>
         <GuestRoute location={location} path='/signup' exact component={SignUpPage}/>
+        <GuestRoute location={location} path='/reset_password/:token' exact component={ResetPasswordPage}/>
     </div>
 );
 /* eslint-enable */

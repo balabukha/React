@@ -37,9 +37,21 @@ Schema.methods.generateJWT = function generateJWT() {
     }, process.env.JWT_SECRET)
 };
 
+Schema.methods.generateResetPasswordToken = function generateResetPasswordToken() {
+    return jwt.sign({
+        _id: this.id
+    }, process.env.JWT_SECRET,
+        {expiresIn: "1h"}
+    );
+};
+
+Schema.methods.generateResetPasswordLink = function generateResetPasswordLink() {
+    return `${process.env.HOST}/reset_password/${this.generateResetPasswordToken()}`
+};
+
 Schema.methods.setPassword = function setPassword(password) {
     this.passwordHash = bcrypt.hashSync(password, 10);
-}
+};
 
 Schema.methods.toAuthJSON = function toAuthJSON() {
     return {
