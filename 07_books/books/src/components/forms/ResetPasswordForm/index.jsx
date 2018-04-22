@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Form, Button, Message } from "semantic-ui-react";
-import validator from "validator";
 import * as R from "ramda";
 
 import InlineError from "../InlineError";
@@ -9,8 +8,9 @@ import InlineError from "../InlineError";
 class SignupForm extends Component {
   state = {
     data: {
-      email: "",
-      password: ""
+      token: this.props.token,
+      password: "",
+      passwordCheck: ""
     },
     loading: false,
     errors: {}
@@ -23,9 +23,10 @@ class SignupForm extends Component {
 
   validation = data => {
     const error = {};
-    if (!validator.isEmail(data.email)) error.email = "wrong email";
-    if (R.length(this.state.data.password) === 0)
+    if (R.length(data.password) === 0)
       error.password = "the password cant be blank";
+    if (this.setState.password !== this.state.passwordCheck)
+      error.passwordCheck = "the passwords are not the same";
     return error;
   };
 
@@ -78,6 +79,18 @@ class SignupForm extends Component {
             onChange={this.handleChange}
           />
           {errors.password && <InlineError text={errors.password} />}
+        </Form.Field>
+        <Form.Field error={!!errors.passwordCheck}>
+          <label htmlFor="password">Password2</label>
+          <input
+            type="passwordCheck"
+            id="passwordCheck"
+            name="passwordCheck"
+            placeholder="make it secure"
+            value={data.passwordCheck}
+            onChange={this.passwordCheck}
+          />
+          {errors.passwordCheck && <InlineError text={errors.passwordCheck} />}
         </Form.Field>
         <Button primary>Signup</Button>
       </Form>

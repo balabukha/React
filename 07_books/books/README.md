@@ -10,3 +10,5 @@ CSS:
 server:
     yarn add --dev babel-cli babel-preset-env
 
+cms + shift + p - prettier
+
