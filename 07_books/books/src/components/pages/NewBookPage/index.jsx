@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Segment } from 'semantic-ui-react';
+import axios from 'axios';
 
 import SearchBookForm from '../../forms/SearchBookForm';
 import BookForm from '../../forms/BookForm';
@@ -8,9 +9,20 @@ export default class NewBookPage extends Component {
   state = { book: null };
 
   onBookSelect = book => {
-    console.log('--CHECKING: onBookSelect--', this.state.book);
     this.setState({ book });
+    axios
+      .get(`/api/books/fetchPages?goodreadsId=${book.goodreadsId}`)
+      .then(res => res.data.pages)
+      .then(pages => this.setState({ book: { ...book, pages } }));
   };
+
+  // onBookSelect = book => {
+  //   this.setState({ book });
+  //   axios
+  //     .get(`/api/books/fetchPages?goodreadsId=${book.goodreadsId}`)
+  //     .then(res => res.data.pages)
+  //     .then(pages => this.setState({ book: { ...book, pages } }));
+  // };
 
   addBook = () => console.log('--CHECKING: addBook--', this.state.book);
 
