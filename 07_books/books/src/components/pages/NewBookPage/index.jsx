@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { Segment } from 'semantic-ui-react';
 import axios from 'axios';
+import { connect } from 'react-redux';
+import { createBook } from '../../../actions/';
 
 import SearchBookForm from '../../forms/SearchBookForm';
 import BookForm from '../../forms/BookForm';
 
-export default class NewBookPage extends Component {
+class NewBookPage extends Component {
   state = { book: null };
 
   onBookSelect = book => {
@@ -16,15 +18,7 @@ export default class NewBookPage extends Component {
       .then(pages => this.setState({ book: { ...book, pages } }));
   };
 
-  // onBookSelect = book => {
-  //   this.setState({ book });
-  //   axios
-  //     .get(`/api/books/fetchPages?goodreadsId=${book.goodreadsId}`)
-  //     .then(res => res.data.pages)
-  //     .then(pages => this.setState({ book: { ...book, pages } }));
-  // };
-
-  addBook = () => console.log('--CHECKING: addBook--', this.state.book);
+  addBook = book => this.props.createBook(book).then(() => this.props.history.push('/dashboard'));
 
   render() {
     return (
@@ -37,3 +31,5 @@ export default class NewBookPage extends Component {
     );
   }
 }
+// function mapStateToProps() {}
+export default connect(null, { createBook })(NewBookPage);

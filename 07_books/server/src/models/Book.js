@@ -1,8 +1,8 @@
 import mongoose from 'mongoose';
 
-const schema = new monggose.Schema({
+const schema = new mongoose.Schema({
   title: { type: String, required: true },
-  author: { type: String, required: true },
+  author: { type: String },
   cover: { type: String, required: true },
   goodreadsId: { type: String },
   pages: { type: Number, required: true },
