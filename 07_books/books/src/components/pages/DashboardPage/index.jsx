@@ -14,10 +14,11 @@ class DashboardPage extends Component {
 
   render() {
     const { isConfirmed, books } = this.props;
+    console.log('--CHECKING: books in DashboardPage--', books);
     return (
       <div>
         {!isConfirmed && <ConfirmEmailMessage />}
-        {books.length === 0 && <AddBookCta />}
+        {books.length === 0 ? <AddBookCta /> : <p>You have books</p>}
       </div>
     );
   }

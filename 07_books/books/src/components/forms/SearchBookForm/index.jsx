@@ -51,6 +51,7 @@ class SearchBookForm extends Component {
   };
 
   render() {
+    console.log('--CHECKING: fetchOptions--', this.state);
     return (
       <Form>
         <Dropdown
